@@ -48,7 +48,7 @@ int main()
 	int numCommands = 0;
 	while (command != "Quit")
 	{
-		cout << "Command: " << command;
+		//cout << "Command: " << command;
 		if (command == "PutItem")
 		{
 			inFile >> item;
@@ -120,7 +120,7 @@ void PrintList(ofstream& dataFile, UnsortedList<int>& list)
 	int item;
 	dataFile << "PrintList: " << endl;
 	cout << "PrintList: ";
-	list.ResetIterator();	// Sets currentPos = -1
+	list.ResetIterator();
 	length = list.GetLength();
 	if (length == 0)
 		dataFile << "List is empty.";
