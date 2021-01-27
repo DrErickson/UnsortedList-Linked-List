@@ -6,7 +6,7 @@
 #include "UnsortedList.h"
 
 using namespace std;
-void PrintList(ofstream& outFile, UnsortedList& list);
+void PrintList(ofstream& outFile, UnsortedList<int>& list);
 
 int main()
 {
@@ -19,7 +19,7 @@ int main()
 
 	int number;
 	int item;
-	UnsortedList list;
+	UnsortedList<int> list;
 
 	bool found;
 
@@ -55,7 +55,8 @@ int main()
 			//cin >> item;
 			list.PutItem(item);
 			outFile << item;
-			outFile << " is in list." << endl;
+			outFile << " added to list." << endl;
+            cout << item << " added to list." << endl;
 		}
 		else if (command == "DeleteItem")
 		{
@@ -64,6 +65,7 @@ int main()
 			list.DeleteItem(item);
 			outFile << item;
 			outFile << " is deleted." << endl;
+            cout << item << " is deleted." << endl;
 		}
 		else if (command == "Contains")
 		{
@@ -108,7 +110,7 @@ int main()
 };
 
 
-void PrintList(ofstream& dataFile, UnsortedList& list)
+void PrintList(ofstream& dataFile, UnsortedList<int>& list)
 // Pre:  list has been initialized.      
 //       dataFile is open for writing.   
 // Post: Each component in list has been written to dataFile.
@@ -116,8 +118,8 @@ void PrintList(ofstream& dataFile, UnsortedList& list)
 {
 	int length;
 	int item;
-	dataFile << "PrintList" << endl;
-	cout << ": ";
+	dataFile << "PrintList: " << endl;
+	cout << "PrintList: ";
 	list.ResetIterator();	// Sets currentPos = -1
 	length = list.GetLength();
 	if (length == 0)
